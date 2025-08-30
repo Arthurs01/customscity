@@ -11,10 +11,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //Datos ficticios.............
 
 const usuarios = [
-    { id: 1, nombre: 'Arturo López', fechaActual: '10/8/2025', estado: 'Pagado', importeUSD: '45543'},
-    { id: 2, nombre: 'Judith Acosta', fechaActual: '15/8/2025', estado: 'Pagado', importeUSD: '4,333,449.00' },
-    { id: 3, nombre: 'Mara Herrera', fechaActual: '2/8/2025', estado: 'Pagado', importeUSD: '5,533,888.00'  },
-    { id: 4, nombre: 'Marco Medina', fechaActual: '25/8/2025', estado: 'No pagado',  importeUSD: '5,445.00'  },
+    { id: 1, nombre: 'Arturo López', fechaActual: '10/8/2025', estado: 'Pagado', importeUSD: 45543.00},
+    { id: 2, nombre: 'Judith Acosta', fechaActual: '15/8/2025', estado: 'Pagado', importeUSD: 433349.00 },
+    { id: 3, nombre: 'Mara Herrera', fechaActual: '2/8/2025', estado: 'Pagado', importeUSD: 5533888.00  },
+    { id: 4, nombre: 'Marco Medina', fechaActual: '25/8/2025', estado: 'No pagado',  importeUSD: 5445.00  },
 ]
 
 
@@ -32,14 +32,14 @@ export default function Crud() {
     const [fechaActual, setFechaActual] = useState(new Date());
     
     
-    useEffect(() => {
+/*     useEffect(() => {
     const timerID = setInterval(() => {
       setFechaActual(new Date());
     }, 1000);
     return () => {
       clearInterval(timerID);
     };
-  }, []);  
+  }, []);   */
 
   //Filtrador por fecha...............
   const [fechaInicio, setFechaInicio] = useState('');
@@ -82,6 +82,7 @@ const filteredData = data.filter(item => {
             
             (estado == false) ? alert('Campo estado vacío...') :
             (importeUSD == false) ? alert('Campo importe(USD) vacío...') :
+            (importeUSD <= 0) ? alert('El importe debe ser un número positivo...') :
                 setData([...data, { id, nombre, fechaActual: fechaActual.toLocaleDateString(), estado, importeUSD }])
         setEditId(null)
 }
@@ -145,10 +146,10 @@ const filteredData = data.filter(item => {
     return (
         //Obtenemos la fecha actual...............
         <div className={styles.main_section}>        
-            <div className={styles.fecha}>
+          {/*   <div className={styles.fecha}>
                   <h2>{fechaActual.toLocaleTimeString()}</h2>
                   <p>{fechaActual.toLocaleDateString()}</p><br />                
-            </div>
+            </div> */}
             <h2 className={styles.newUser}>Facturación:</h2> <hr />
             <div className={styles.fact_flex}>
               <div>
