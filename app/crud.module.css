@@ -1,0 +1,87 @@
+.main_table{
+    border-radius: 5px;
+    border: 1px solid rgba(0, 255, 255, 0.226);
+    width: 100%;
+    padding: 20px;
+}
+.newUser {
+    color: aqua;
+  }
+
+.main_table thead td{
+    color: rgb(1, 94, 94);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.322);
+    padding-bottom: 15px;
+   
+}
+.main_table td{
+   
+    padding-top: 15px ;
+}
+
+.action_icons:hover{
+    cursor: pointer;
+}
+
+.formInputsHide{
+    display: none;
+}
+
+
+
+.input_text[type="text"],
+.input_text[type="email"],
+.form_textarea{
+    padding: 5px;
+    color: aqua;
+    background-color: rgba(0,0,0,0.5);
+    box-shadow: 0 0 0.7142857142857143rem #08856a;
+}
+.input_text[type="text"],
+.input_text[type="email"],
+.form_textarea:focus{
+    box-shadow: 0 0 0.7142857142857143rem #0ba792;
+    border: 1px solid rgba(0, 255, 255, 0.459);
+}
+
+.input_text::placeholder{
+    color: rgba(0, 255, 255, 0.507);
+    
+}
+.input, .form_textarea{
+    border: 1px solid rgba(0, 255, 255, 0.459);
+    
+    outline: none;
+  }
+
+  .btn_add{
+    color: aqua;
+    cursor: pointer;
+     border: 1px solid rgba(0, 255, 255, 0.459);
+     outline: none;
+     background:black;
+     
+      padding:5px 10px 5px 10px;
+      box-shadow: 0 0 0.7142857142857143rem #08856a;
+
+      width: 90px;
+  }
+  .btn_add:hover{
+    
+    opacity: .8;
+  }
+  .fecha{
+    text-align: end;
+  }
+
+  .fact_flex{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 50px;
+    
+  }
+
+
+
+
