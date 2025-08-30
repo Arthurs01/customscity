@@ -1,15 +1,11 @@
 
 LEER:
 
-La app trabaja desde el lado cliente (Frontend) la cual crea, lee, actualiza y elimina objetos de un array mediante su interfaz
+Para correr la aplicacion utilizamos los comandos:
 
-TECNOLOGÍAS UTILIZADAS:
+-cd sistemax
+-npm run dev
 
--NextJs
--ReactJs
--Javascript
-
-
-Nota adicional: Al dar f5 la app se reestablece al modo inicial ya que es solo una versión de prueba.
+Nota adicional: Al dar f5 la app reestablece los registros ya que no cuenta con un método de guardado.
 
 
