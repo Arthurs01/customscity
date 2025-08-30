@@ -59,29 +59,35 @@
     cursor: pointer;
      border: 1px solid rgba(0, 255, 255, 0.459);
      outline: none;
-     background:black;
-     
+     background:black;     
       padding:5px 10px 5px 10px;
       box-shadow: 0 0 0.7142857142857143rem #08856a;
-
       width: 90px;
+      margin-bottom:80px ;
   }
-  .btn_add:hover{
-    
+
+  .btn_add:hover{    
     opacity: .8;
   }
+
+
   .fecha{
     text-align: end;
   }
 
   .fact_flex{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 50px;
+   
     
   }
 
+  .filtroEstado{
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
 
 
 

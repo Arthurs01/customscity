@@ -55,7 +55,6 @@ const filteredData = data.filter(item => {
     const isStatusMatch = (filter === 'Todos' || item.estado === filter);
 
     // Convertimos las fechas a un formato comparable (objetos Date)
-    // Se utiliza una función para analizar la fecha en el formato dd/mm/yyyy
     const parts = item.fechaActual.split('/');
     const itemDate = new Date(parts[2], parts[1] - 1, parts[0]);
 
@@ -69,9 +68,6 @@ const filteredData = data.filter(item => {
     // Retornamos true si ambos filtros coinciden
     return isStatusMatch && isDateInRange;
 });
-
-
-
 
 
  // Agregar nueva factura.............
@@ -156,69 +152,58 @@ const filteredData = data.filter(item => {
               <button id='agregar' className={`btn p3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 `} onClick={() => agregarFactura()}>Agregar</button><br />
               </div>
         
-        {/* --------Filtrador por estado------------- */}
-         <div>
-              <label htmlFor="filter-estado">Filtrar por estado: &nbsp;<br />
-    <select
-        id="filter-estado"
-        onChange={(e) => setFilter(e.target.value)} 
-        value={filter}
-        >
-       
-        <option value="Pagado">Pagado</option>
-        <option value="No pagado">No pagado</option>
-    </select>
-    </label>
-    </div>
-    {/* ----------Filtrador por fecha----------- */}
-    <div>
-  <label htmlFor="filter-fecha-inicio">Fecha de inicio: &nbsp;</label><br />
-  <input
-    id="filter-fecha-inicio"
-    type="date"
-    onChange={(e) => setFechaInicio(e.target.value)}
-    value={fechaInicio}
-  />
-</div>
+ 
 
-<div>
-  <label htmlFor="filter-fecha-fin">Fecha de fin: &nbsp;</label><br />
-  <input
-    id="filter-fecha-fin"
-    type="date"
-    onChange={(e) => setFechaFin(e.target.value)}
-    value={fechaFin}
-  />
-</div>
     </div>
-        {/* Agregamos nueva factura--------  */}
-            <br />                           
-           
+            <br />        
+        {/* Agregamos nueva factura--------  */}           
             <form id='addForm' name='addForm' onSubmit={FormSubmit} className='addForm' >  
-               {/*----------- Formulario se muestra si la variable de estado "mostrarForm
-               " es true"---------- */}
+               {/*----------- Formulario se muestra si la variable de estado "mostrarForm " es true"---------- */}
               
               {mostrarForm && (
-
                   <div id='formInputs' className={styles.formInputs}>
                     <input type="text" className={styles.input_text} onChange={(e) => setNombre(e.target.value)} placeholder='Nombre' /><br /><br />
                   <label htmlFor="estado">Estado: &nbsp;
-                       <select name="estado" id="estado" onChange={(e) => setEstado(e.target.value)} placeholder="Estado">
+                       <select name="estado" id="estado" onChange={(e) => setEstado(e.target.value)} placeholder="Estado" className='form-select'>
                         <option value="pagado" selected>Pagado</option>
                         <option value="No pagado">No pagado</option>
                     </select>
                   </label><br /><br />
-{/*                 <input type="text" className={styles.input_text} onChange={(e) => setFechaActual(e.target.value)} placeholder='Fecha' /><br /><br />
- */}                
                     <input type="text" className={styles.input_text} onChange={(e) => setImporteUSD(e.target.value)} placeholder='importe(USD)' /><br /><br />
                     
-                <button className={`${styles.btn_add}btn btn-control`} type='submit' id='add' onClick={() => Agregar()}>Subir</button><br />
+            <button className={`${styles.btn_add} btn btn-control`} type='submit' id='add' onClick={() => Agregar()}>Subir</button><br />
                 </div>
 
  )}
+     {/* ----------Filtrador por fecha----------- */}
+    <div className={styles.filtroEstado}>
 
+    <div>
+  <label htmlFor="filter-fecha-inicio">Fecha de inicio: &nbsp;</label><br />
+  <input className='form-control'  id="filter-fecha-inicio"  type="date"  onChange={(e) => setFechaInicio(e.target.value)} value={fechaInicio}
+    />
+</div>
 
-                <br />
+<div>
+  <label htmlFor="filter-fecha-fin">Fecha de fin: &nbsp;</label><br />
+  <input className='form-control' id="filter-fecha-fin"  type="date" onChange={(e) => setFechaFin(e.target.value)}
+    value={fechaFin}
+    />
+</div>
+       {/* --------Filtrador por estado------------- */}
+         <div>
+              <label htmlFor="filter-estado">Filtrar por estado: &nbsp;<br />
+    <select id="filter-estado" onChange={(e) => setFilter(e.target.value)} value={filter} className='form-select'>       
+          <option value="Todos">Todos</option>
+        <option value="Pagado">Pagado</option>
+        <option value="No pagado">No pagado</option>
+    </select>
+
+    </label>
+    </div>
+    </div>
+    
+                    <br />
                 <div className='table-responsive'>
 
                 <table className="table">
